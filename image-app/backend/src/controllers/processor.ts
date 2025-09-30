@@ -1,6 +1,5 @@
 import sharp from 'sharp';
 import { v4 as uuidv4 } from 'uuid';
-import path from 'path';
 import { ImageOperation, ConvertParams, CropParams, QualityParams, ResizeParams } from '../types';
 import logger from '../utils/logger';
 

@@ -4,10 +4,10 @@ import { v4 as uuidv4 } from 'uuid';
 import { config } from '../utils/config';
 
 const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
+  destination: (_req, _file, cb) => {
     cb(null, path.join(config.uploadDir, 'raw'));
   },
-  filename: (req, file, cb) => {
+  filename: (_req, file, cb) => {
     const ext = path.extname(file.originalname);
     const filename = `${uuidv4()}${ext}`;
     cb(null, filename);
@@ -15,7 +15,7 @@ const storage = multer.diskStorage({
 });
 
 const fileFilter = (
-  req: Express.Request,
+  _req: Express.Request,
   file: Express.Multer.File,
   cb: multer.FileFilterCallback
 ) => {

@@ -1,7 +1,6 @@
 import express, { Request, Response } from 'express';
 import fs from 'fs/promises';
 import path from 'path';
-import { v4 as uuidv4 } from 'uuid';
 import { upload } from '../middleware/upload';
 import { uploadLimiter, processLimiter } from '../middleware/rateLimiter';
 import { AppError } from '../middleware/errorHandler';
@@ -106,7 +105,7 @@ router.post('/process', processLimiter, async (req: Request, res: Response, next
     // Determine output format
     let outputFormat = 'jpeg';
     for (const op of operations) {
-      if (op.type === 'convert' && op.params.format) {
+      if (op.type === 'convert' && 'format' in op.params) {
         outputFormat = op.params.format;
       }
     }
