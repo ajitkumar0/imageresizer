@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-config
+  namespace: image-processor
+data:
+  NODE_ENV: "production"
+  PORT: "3001"
+  HOST: "0.0.0.0"
+  UPLOAD_DIR: "/app/uploads"
+  MAX_FILE_SIZE: "52428800"
+  ALLOWED_MIME_TYPES: "image/jpeg,image/png,image/webp,image/gif"
+  CLEANUP_TTL_HOURS: "24"
+  CLEANUP_INTERVAL_HOURS: "6"
+  RATE_LIMIT_WINDOW_MS: "900000"
+  RATE_LIMIT_MAX_REQUESTS: "100"
+  MAX_DISK_QUOTA: "10737418240"
+  CORS_ORIGIN: "http://frontend-service"

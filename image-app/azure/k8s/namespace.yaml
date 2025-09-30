@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: image-processor
+  labels:
+    name: image-processor
+    environment: production
