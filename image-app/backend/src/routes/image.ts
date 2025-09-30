@@ -212,7 +212,7 @@ router.delete('/images/:fileId', async (req: Request, res: Response, next) => {
  * GET /api/images
  * List all images (admin endpoint)
  */
-router.get('/images', async (req: Request, res: Response, next) => {
+router.get('/images', async (_req: Request, res: Response, next) => {
   try {
     const images = metadata.list();
     res.status(200).json(images);
