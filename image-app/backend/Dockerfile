@@ -50,7 +50,7 @@ RUN npm ci --only=production && \
 COPY --from=builder /app/dist ./dist
 
 # Create directories with correct permissions
-RUN mkdir -p /home/uploads/raw /home/uploads/processed /app/logs && \
+RUN mkdir -p /app/uploads/raw /app/uploads/processed /home/uploads/raw /home/uploads/processed /app/logs && \
     chown -R nodejs:nodejs /app /home/uploads
 
 # Switch to non-root user
