@@ -62,10 +62,12 @@ az acr build \
 
 # Build and push frontend using ACR Build
 echo "🏗️ Building frontend image in Azure (this may take 5-10 minutes)..."
+# Pass backend URL as build argument for VITE_API_URL
 az acr build \
     --registry $ACR_NAME \
     --image frontend:latest \
     --file "$PROJECT_ROOT/frontend/Dockerfile" \
+    --build-arg VITE_API_URL=https://${BACKEND_APP}.azurewebsites.net \
     "$PROJECT_ROOT/frontend"
 
 # Get ACR credentials
